@@ -8,16 +8,16 @@ class Route
     private $aCity;
     private $bCity;
     private $points;
-    private $lenght;
+    private $length;
 
-    public function __construct(City $aCity, City $bCity, int $lenght, RouteColor $color)
+    public function __construct(City $aCity, City $bCity, int $length, RouteColor $color)
     {
-        $this->validateLength($lenght);
+        $this->validateLength($length);
 
         $this->color = $color;
         $this->aCity = $aCity;
         $this->bCity = $bCity;
-        $this->lenght = $lenght;
+        $this->length = $length;
     }
 
     private function validateLength(int $length)
@@ -31,9 +31,9 @@ class Route
         return [$this->aCity, $this->bCity];
     }
 
-    public function getLenght(): int
+    public function getLength(): int
     {
-        return $this->lenght;
+        return $this->length;
     }
 
     public function getColor() : RouteColor

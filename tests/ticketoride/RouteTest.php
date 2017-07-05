@@ -18,9 +18,9 @@ class RouteTest extends TestCase
          $this->assertEquals($this->route->getPoints());
     }
 
-    public function testGetLenght()
+    public function testGetLength()
     {
-         $this->assertEquals(1, $this->route->getLenght());
+         $this->assertEquals(1, $this->route->getLength());
     }
 
     public function testGetColor()
