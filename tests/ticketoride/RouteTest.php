@@ -2,6 +2,7 @@
 
 namespace ticketoride;
 
+use ticketoride\exception\InvalidLengthException;
 use PHPUnit\Framework\TestCase;
 
 class RouteTest extends TestCase
@@ -22,6 +23,14 @@ class RouteTest extends TestCase
     {
         $this->assertEquals(Color::WHITE, $this->route->getColor());
     }
+
+    public function testInvalidLengthException()
+    {
+
+        $this->expectException(InvalidLengthException::class);
+        new Route(new City("a"), new City("b"), -1, new RouteColor(Color::WHITE));
+    }
+
 
     public function testGetCities()
     {

@@ -2,6 +2,8 @@
 
 namespace ticketoride;
 
+use ticketoride\exception\InvalidLengthException;
+
 class Route
 {
     private $color;
@@ -23,7 +25,7 @@ class Route
     private function validateLength(int $length)
     {
         if ($length < 1 || $length > 6) {
-            throw new \InvalidArgumentException;
+            throw new InvalidLengthException;
         }
     }
     public function getCities(): array
