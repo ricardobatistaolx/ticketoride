@@ -3,18 +3,11 @@ namespace ticketoride;
 
 class Points
 {
-    private $length;
-
-    public function __construct($length)
+    public function calculatePoints(Route $route)
     {
-        $this->validateLength($length);
+        $length = $route->getLength();
 
-        $this->length = $length;
-    }
-
-    public function getPoints()
-    {
-        switch ($this->length) {
+        switch ($length) {
             case 1:
                 return 1;
             case 2:
@@ -27,13 +20,8 @@ class Points
                 return 10;
             case 6:
                 return 15;
-        }
-    }
-
-    private function validateLength(int $length)
-    {
-        if ($length < 1 || $length > 6) {
-            throw new \InvalidArgumentException;
+            default:
+                throw new \InvalidArgumentException;
         }
     }
 }

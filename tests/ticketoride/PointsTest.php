@@ -5,58 +5,59 @@ use PHPUnit\Framework\TestCase;
 
 class PointsTest extends TestCase
 {
+    private $points;
+
+    public function setUp()
+    {
+        $this->points = new Points;
+    }
+
     public function testLengthOneShouldReturnOnePoint()
     {
-        $points = new Points(1);
-        $this->assertEquals(1, $points->getPoints());
+        $this->assertEquals(1, $this->points->calculatePoints(new Route(new City("a"), new City("b"), 1, new RouteColor(Color::WHITE))));
     }
 
     public function testLengthTwoShouldReturnTwoPoints()
     {
-        $points = new Points(2);
-        $this->assertEquals(2, $points->getPoints());
+        $this->assertEquals(2, $this->points->calculatePoints(new Route(new City("a"), new City("b"), 2, new RouteColor(Color::WHITE))));
     }
 
     public function testLengthThreeShouldReturnFourPoints()
     {
-        $points = new Points(3);
-        $this->assertEquals(4, $points->getPoints());
+        $this->assertEquals(4, $this->points->calculatePoints(new Route(new City("a"), new City("b"), 3, new RouteColor(Color::WHITE))));
     }
 
     public function testLengthFourShouldReturnSevenPoints()
     {
-        $points = new Points(4);
-        $this->assertEquals(7, $points->getPoints());
+        $this->assertEquals(7, $this->points->calculatePoints(new Route(new City("a"), new City("b"), 4, new RouteColor(Color::WHITE))));
     }
 
     public function testLengthFiveShouldReturnTenPoints()
     {
-        $points = new Points(5);
-        $this->assertEquals(10, $points->getPoints());
+        $this->assertEquals(10, $this->points->calculatePoints(new Route(new City("a"), new City("b"), 5, new RouteColor(Color::WHITE))));
     }
 
     public function testLengthSixShouldReturnFifteenPoints()
     {
-        $points = new Points(6);
-        $this->assertEquals(15, $points->getPoints());
+        $this->assertEquals(15, $this->points->calculatePoints(new Route(new City("a"), new City("b"), 6, new RouteColor(Color::WHITE))));
     }
 
     public function testInvalidLengthShouldThrowException()
     {
         $this->expectException(\InvalidArgumentException::class);
-        new Points(10);
+        $this->points->calculatePoints(new Route(new City("a"), new City("b"), 10, new RouteColor(Color::WHITE)));
     }
 
     public function testZeroLengthShouldThrowException()
     {
         $this->expectException(\InvalidArgumentException::class);
-        new Points(0);
+        $this->points->calculatePoints(new Route(new City("a"), new City("b"), 0, new RouteColor(Color::WHITE)));
     }
 
 
     public function testNegativeLengthShouldThrowException()
     {
         $this->expectException(\InvalidArgumentException::class);
-        new Points(-1);
+        $this->points->calculatePoints(new Route(new City("a"), new City("b"), -1, new RouteColor(Color::WHITE)));
     }
 }
