@@ -13,11 +13,6 @@ class RouteTest extends TestCase
         $this->route = new Route(new City("a"), new City("b"), 1, new RouteColor(Color::WHITE));
     }
 
-    public function testGetPoints()
-    {
-         $this->assertEquals($this->route->getPoints());
-    }
-
     public function testGetLength()
     {
          $this->assertEquals(1, $this->route->getLength());
