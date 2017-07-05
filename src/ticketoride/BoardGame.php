@@ -50,7 +50,7 @@ class BoardGame
     public function initializeGame($numberOfRoutes, $numberOfPlayers, $numberOfCardsPerColor)
     {
         $this->createRoutes($numberOfRoutes);
-  //      $this->createPlayers($numberOfPlayers);
+          $this->createPlayers($numberOfPlayers);
         $this->createDeck($numberOfCardsPerColor);
     }
 
