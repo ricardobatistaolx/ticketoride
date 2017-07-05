@@ -10,5 +10,4 @@ class Color {
     const BLACK  = "black";
     const RED    = "red";
     const GREEN  = "green";
-    const GRAY   = "gray";
 }
