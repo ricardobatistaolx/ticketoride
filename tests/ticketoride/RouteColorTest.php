@@ -9,7 +9,7 @@ class RouteColorTest extends TestCase
 
     public function testGetColor()
     {
-        $routeColor = new RouteColor(Color::WHITE);
-        $this->assertEquals(Color::WHITE, $routeColor->getColor());
+        $routeColor = new RouteColor(RouteColor::GRAY);
+        $this->assertEquals(RouteColor::GRAY, $routeColor->getColor());
     }
 }
