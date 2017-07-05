@@ -8,8 +8,6 @@ class Points
         $length = $route->getLength();
 
         switch ($length) {
-            case 1:
-                return 1;
             case 2:
                 return 2;
             case 3:
@@ -20,8 +18,8 @@ class Points
                 return 10;
             case 6:
                 return 15;
-            default:
-                throw new \InvalidArgumentException;
         }
+
+        return 1;
     }
 }

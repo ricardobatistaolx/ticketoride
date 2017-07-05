@@ -19,7 +19,7 @@ class PointsTest extends TestCase
 
     public function testLengthTwoShouldReturnTwoPoints()
     {
-        $this->assertEquals(2,$this->points->calculatePoints($this->createCityWithLength(2)));
+        $this->assertEquals(2, $this->points->calculatePoints($this->createCityWithLength(2)));
     }
 
     public function testLengthThreeShouldReturnFourPoints()
@@ -40,25 +40,6 @@ class PointsTest extends TestCase
     public function testLengthSixShouldReturnFifteenPoints()
     {
         $this->assertEquals(15, $this->points->calculatePoints($this->createCityWithLength(6)));
-    }
-
-    public function testInvalidLengthShouldThrowException()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->points->calculatePoints($this->createCityWithLength(10));
-    }
-
-    public function testZeroLengthShouldThrowException()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->points->calculatePoints($this->createCityWithLength(0));
-    }
-
-
-    public function testNegativeLengthShouldThrowException()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->points->calculatePoints($this->createCityWithLength(-1));
     }
 
     private function createCityWithLength(int $length)
